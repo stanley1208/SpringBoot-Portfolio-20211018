@@ -12,7 +12,7 @@ import com.example.demo.entity.Classify;
 
 @Repository(value = "classifyRepository")
 
-public interface ClassifyRepository extends JpaRepository<Classify,Integer >{
+public interface ClassifyRepository extends JpaRepository<Classify,Integer>{
 	
 	@Transactional
 	@Modifying

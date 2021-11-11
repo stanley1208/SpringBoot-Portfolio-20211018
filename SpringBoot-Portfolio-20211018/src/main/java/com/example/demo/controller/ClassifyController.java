@@ -17,58 +17,59 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.Classify;
 import com.example.demo.repository.ClassifyRepository;
 
-
 @RestController
 @RequestMapping("/classify")
 public class ClassifyController {
-
+	
 	@Autowired
 	private ClassifyRepository classifyRepository;
 	
-	@RequestMapping(value = {"/","query"})
+	@RequestMapping(value = {"/", "/query"})
 	public List<Classify> query() {
 		return classifyRepository.findAll();
 	}
 	
-	@RequestMapping(value = {"/{id}","/get/{id}"})
+	@RequestMapping(value = {"/{id}", "/get/{id}"})
 	public Classify get(@PathVariable("id") Integer id) {
-		Classify classify=classifyRepository.findById(id).get();
+		Classify classify = classifyRepository.findById(id).get();
 		return classify;
 	}
 	
-	@PostMapping(value = {"/","/add"})
+	@PostMapping(value = {"/", "/add"})
 	@Transactional
-	public Classify add(@RequestBody Map<String,String>map) {
-		Classify classify=new Classify();
+	public Classify add(@RequestBody Map<String, String> map) {
+		Classify classify = new Classify();
 		classify.setName(map.get("name"));
-		if(map.get("tx")==null) {
+		if(map.get("tx") == null) {
 			classify.setTx(false);
-		}else {
+		} else {
 			classify.setTx(true);
 		}
 		classifyRepository.save(classify);
 		return classify;
 	}
 	
-	
-	@PutMapping(value = {"/{id}","/update/add"})
+	@PutMapping(value = {"/{id}", "/update/{id}"})
 	@Transactional
-	public Boolean update(@PathVariable("id") Integer id,@RequestBody Map<String,String>map) {
-		Classify classify=get(id);
+	public Boolean update(@PathVariable("id") Integer id, @RequestBody Map<String, String> map) {
+		Classify classify = get(id);
 		classify.setName(map.get("name"));
-		if(map.get("tx")==null) {
+		if(map.get("tx") == null) {
 			classify.setTx(false);
-		}else {
+		} else {
 			classify.setTx(true);
 		}
 		classifyRepository.saveAndFlush(classify);
 		return true;
 	}
 	
-	@DeleteMapping(value = {"/{id}","delete/{id}"})
+	@DeleteMapping(value = {"/{id}", "/delete/{id}"})
+	@Transactional
 	public Boolean delete(@PathVariable("id") Integer id) {
 		classifyRepository.deleteById(id);
 		return true;
-		
 	}
+	
+	
+	
 }

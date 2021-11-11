@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-<meta charset="BIG5">
-<title>Portfolio ¸ê®ÆªíÃöÁp¹Ï</title>
-<th:block th:include="./include/header :: header"></th:block>
-<style type="text/css">
-.img-responsive {
-	display: block;
-	height: auto;
-	max-width: 100%;
-}
-</style>
-
+	<meta charset="UTF-8">
+	<title>Portfolio è³‡æ–™è¡¨é—œè¯åœ–</title>
+	<th:block th:include="./include/header :: header"></th:block>
+	<style type="text/css">
+		.img-responsive {
+		  display: block;
+		  height: auto;
+		  max-width: 100%;
+		}
+	</style>
 </head>
 <body>
 	<th:block th:include="./include/navbar :: navbar"></th:block>
+	
 	<div class="container">
-		<h1>Portfolio ¸ê®ÆªíÃöÁp¹Ï</h1>
-		<img th:src="@{/images/portfolio_tables.png}">
+		<h1>Portfolio è³‡æ–™è¡¨é—œè¯åœ–</h1>
+		<img class="img-responsive" th:src="@{/images/portfolio_tables.png}" />
+		
 	</div>
+	
 	<th:block th:include="./include/footer :: footer"></th:block>
 </body>
 </html>
