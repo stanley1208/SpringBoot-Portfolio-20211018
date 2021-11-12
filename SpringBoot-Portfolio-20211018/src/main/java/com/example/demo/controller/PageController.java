@@ -17,4 +17,24 @@ public class PageController {
 	public String getClassifyPage() {
 		return "classify";
 	}
+	
+	@RequestMapping("/investor")
+    public String getInvestorPage() {
+        return "investor";
+    }
+    
+    @RequestMapping("/tstock")
+    public String getTStockPage() {
+        return "tstock";
+    }
+    
+    @RequestMapping("/watch")
+    public String getWatchPage() {
+        return "watch";
+    }
+    
+    @RequestMapping("/watchlist")
+    public String getWatchListPage() {
+        return "watchlist";
+    }
 }
