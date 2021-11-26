@@ -6,12 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/page")
 public class PageController {
-
+	
 	@RequestMapping("/home")
 	public String getHomePage() {
 		return "home";
 	}
-	
 	
 	@RequestMapping("/classify")
 	public String getClassifyPage() {
@@ -42,4 +41,5 @@ public class PageController {
     public String getAssetPage() {
         return "asset";
     }
+	
 }
